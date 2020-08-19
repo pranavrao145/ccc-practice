@@ -1,3 +1,5 @@
+# J2
+
 word = input().upper()
 letters = 'IOSHZXN'
 yesno = True
