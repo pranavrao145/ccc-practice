@@ -13,7 +13,8 @@ public class TelemarketerorNot {
         }
 
         if ((numbers[0] == 8 || numbers[0] == 9) && (numbers[3] == 8 || numbers[3] == 9) && (numbers[1] == numbers[2])) System.out.println("ignore"); else System.out.println("answer");
+        
+        scanner.close();
     }
     
-    scanner.close()
 }

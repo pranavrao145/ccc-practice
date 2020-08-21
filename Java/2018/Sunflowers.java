@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+// J4
+
 import java.util.Scanner;
 
 public class Sunflowers {
@@ -68,6 +69,8 @@ public class Sunflowers {
                 else System.out.println(plantheights[i][g]);
             }
         }
+
+        scanner.close();
 
     }
 }
