@@ -39,6 +39,6 @@ public class ArrivalTime {
 
         System.out.println(hours1 + ":" + minutes1);
         
-        scanner.close()
+        scanner.close();
     }
 }
