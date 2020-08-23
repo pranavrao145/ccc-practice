@@ -38,5 +38,7 @@ public class ArrivalTime {
         if (minutes < 10) minutes1 = "0" + Integer.toString(minutes); else minutes1 = Integer.toString(minutes);
 
         System.out.println(hours1 + ":" + minutes1);
+        
+        scanner.close()
     }
 }
