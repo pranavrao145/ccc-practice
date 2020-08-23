@@ -5,10 +5,6 @@ length1 = 0
 sub_words = []
 
 
-# [a, b, r, a, c, a, d, a, b, r, a]
-# [b, a, n, a, n, a]
-# [a, b, b, a]
-
 def reverse(x):
     return x[::-1]
 
