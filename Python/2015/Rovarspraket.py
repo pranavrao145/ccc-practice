@@ -1,6 +1,6 @@
 # J3
 
-str1 = input("Enter a string: ")
+str1 = input()
 str2 = ""
 
 consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
