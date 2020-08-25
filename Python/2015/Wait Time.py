@@ -17,7 +17,7 @@ for line in lines:
         temptimes[line[1]] = time
         if line[1] not in people:
             people.append(line[1])
-        time += 1
+        time     += 1
     elif line[0] == 'W':
         time += (line[1] - 1)
     elif line[0] == 'S':
