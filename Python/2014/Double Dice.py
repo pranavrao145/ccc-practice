@@ -5,9 +5,6 @@ n = int(input())
 antoniapoints = 100
 davidpoints = 100
 
-antoniaroll = 0
-davidroll = 0
-
 rolls = []
 
 for i in range(n):
