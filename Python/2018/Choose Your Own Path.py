@@ -1,51 +1,70 @@
-# J5 - doesn't work for some inputs
+# J5
 
-from queue import Queue
+from collections import deque
 
 graph = dict()
-numpages = int()
-bfsQueue = Queue()
-depthQueue = Queue()
+pages = list()
 visited = list()
-valid_paths = []
+q = deque(list())
+path_lengths = []
 
-def BFS():
-    while not bfsQueue.empty():
-        elem = bfsQueue.get()
-        depth = depthQueue.get()
-        if visited[elem - 1] == True:
-            if all(visited):
-                return depth
-            else:
-                continue
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.adjacent = None
+        self.depth = None
+
+def in_queue(node):
+    global q
+    return True if q.count(node) > 0 else False
+
+def all_visited():
+    for node in pages:
+        if node not in visited:
+            return False
+    return True
+
+def bfs():
+    global path_lengths, q, visited, pages
+    while len(q) > 0:
+        elem = q.pop()
+        if elem in visited:
+            continue
         else:
-            visited[elem - 1] = True
-            if all(visited):
-                return depth
-            if graph.get(elem) == []:
-                valid_paths.append(depth)
-            for page in graph.get(elem):
-                bfsQueue.put(page)
-                depthQueue.put(depth + 1)
-        
-    return -1
+            visited.append(elem)
+            if elem.adjacent == []:
+                path_lengths.append(elem.depth)
+            else:
+                for page in elem.adjacent:
+                    node = pages[page - 1]
+                    if not in_queue(node):
+                        node.depth = elem.depth + 1
+                        q.appendleft(node)
+                
 
 if __name__ == "__main__":
     numpages = int(input())
-    visited = [False] * numpages
+
+    for i in range(1, numpages + 1):
+        pages.append(Node(data=i))
 
     for i in range(1, numpages + 1):
         graph[i] = list(map(int, input().strip().split()[1:]))
     
-    bfsQueue.put(1)
-    depthQueue.put(1)
+    for key in graph:
+        pages[key - 1].adjacent = graph.get(key)
 
-    result = BFS()
-
-    if result == -1:
-        print("N")
-        valid_paths.sort()
-        print(valid_paths[0])
-    else:
+    pages[0].depth = 1
+    q.appendleft(pages[0])
+    
+    bfs()
+    
+    path_lengths.sort()
+    
+    if all_visited():
         print("Y")
-        print(result)
+        print(path_lengths[0])
+    else:
+        print("N")
+        print(path_lengths[0])
