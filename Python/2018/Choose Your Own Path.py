@@ -48,6 +48,8 @@ if __name__ == "__main__":
     for key in graph:
         pages[key - 1].adjacent = graph.get(key)
 
+    del graph
+    
     pages[0].depth = 1
     q.appendleft(pages[0])
     visited.append(pages[0])
