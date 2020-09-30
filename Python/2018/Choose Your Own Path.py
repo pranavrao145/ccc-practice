@@ -29,16 +29,14 @@ def bfs():
     global path_lengths, q, visited, pages
     while len(q) > 0:
         elem = q.pop()
-        if elem in visited:
-            continue
-        else:
+        if elem not in visited:
             visited.append(elem)
             if elem.adjacent == []:
                 path_lengths.append(elem.depth)
             else:
                 for page in elem.adjacent:
-                    node = pages[page - 1]
-                    if not in_queue(node):
+                    if pages[page - 1] not in visited:
+                        node = pages[page - 1]
                         node.depth = elem.depth + 1
                         q.appendleft(node)
                 
