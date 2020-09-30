@@ -15,10 +15,6 @@ class Node:
         self.adjacent = None
         self.depth = None
 
-def in_queue(node):
-    global q
-    return True if q.count(node) > 0 else False
-
 def all_visited():
     for node in pages:
         if node not in visited:
@@ -29,16 +25,15 @@ def bfs():
     global path_lengths, q, visited, pages
     while len(q) > 0:
         elem = q.pop()
-        if elem not in visited:
-            visited.append(elem)
-            if elem.adjacent == []:
-                path_lengths.append(elem.depth)
-            else:
-                for page in elem.adjacent:
-                    if pages[page - 1] not in visited:
-                        node = pages[page - 1]
-                        node.depth = elem.depth + 1
-                        q.appendleft(node)
+        if elem.adjacent == []:
+            path_lengths.append(elem.depth)
+        else:
+            for page in elem.adjacent:
+                if pages[page - 1] not in visited:
+                    node = pages[page - 1]
+                    node.depth = elem.depth + 1
+                    visited.append(node)
+                    q.appendleft(node)
                 
 
 if __name__ == "__main__":
@@ -55,7 +50,8 @@ if __name__ == "__main__":
 
     pages[0].depth = 1
     q.appendleft(pages[0])
-    
+    visited.append(pages[0])
+
     bfs()
     
     path_lengths.sort()
