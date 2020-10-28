@@ -14,7 +14,7 @@ for i in range(commands):
 
 for line in lines:
     if line[0] == 'R':
-        temptimes[line[1]] = time
+        temptimes[line[1]] = time 
         if line[1] not in people:
             people.append(line[1])
         time += 1
@@ -35,7 +35,5 @@ for person in people:
         print(person, finaltimes.get(person))
     else:
         print(person, -1)
-
-
 
 
