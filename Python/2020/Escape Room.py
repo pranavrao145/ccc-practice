@@ -1,8 +1,10 @@
 # J5
 
 found = False
-visited = []
-matrix = []
+visited = [] # stores all visited coordinates
+matrix = [] # [3 10 8 14]
+            # [1 11 12 12]
+            # [6 2  3  9]
 
 
 def factors(value):
@@ -11,10 +13,10 @@ def factors(value):
         if value % i == 0:
             if i <= down and value / i <= across:
                 factors.append((i, int(value / i)))
-    return factors
+    return factors # [(1, 3), (3, 1)]
 
 
-def check(d, a):
+def check(d, a): # these parameters are real positions (3, 4)
     global found, matrix
     if d == down and a == across:
         found = True
