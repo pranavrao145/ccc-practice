@@ -29,8 +29,7 @@ vector<pair<int, int>> factors(int num) {
 }
 
 int main() {
-    cin >> M;
-    cin >> N;
+    cin >> M >> N;
 
     matrix.resize(M);
 
@@ -68,4 +67,5 @@ void DFS(int d, int a) {
             }
         }
     }
+    return;
 }
