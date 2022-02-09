@@ -12,7 +12,7 @@ bool found = false;
 void DFS(int d, int a);
 
 std::vector<std::pair<int, int>> factors(int num) {
-    std::vector<std::pair<int, int>> final_factors;
+  std::vector<std::pair<int, int>> final_factors;
 
   for (int i = 1; i < num + 1; i++) {
     if (num % i == 0) {
@@ -26,7 +26,7 @@ std::vector<std::pair<int, int>> factors(int num) {
 }
 
 int main() {
-    std::cin >> M >> N;
+  std::cin >> M >> N;
 
   matrix.resize(M);
 
